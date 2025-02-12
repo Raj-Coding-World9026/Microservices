@@ -1,0 +1,21 @@
+create a new project with config server dependency
+add @EnableConfigServer to main application class
+in application.yml file
+server:
+  port: 8085
+spring:
+    application:
+      name:CONFIG-SERVER
+cloud:
+  config:
+    server:
+      git:
+        uri: https://github.com/....
+        clone-on-start: true
+
+whatever we write in application.yml file in github that will reflect in every client
+----------------------------------
+add config client
+spring:
+  config:
+    import: configserver:http://localhost:8085
